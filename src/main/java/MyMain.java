@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class MyMain {
 
     // Returns the mean of the 2D array mat
@@ -15,40 +16,57 @@ public class MyMain {
 
     // Returns the median of the 2D array mat
     public static double median(double[][] mat) { 
-    double count = 0;
-    double count2 = 0;
+    int count = 0;
+    int count2 = 0;
        for (int row = 0; row < mat.length; row++){
             for (int col = 0; col < mat[0].length; col++){
+                for (int i = 0; i < mat.length * mat[0].length; i++){
                 count ++;
-            }
-        }
-        count = count / 2;
-            if (count % 2 == 0){count = count / 2;
+        }}}
+        double[] arr = new double[count];
         for (int row = 0; row < mat.length; row++){
             for (int col = 0; col < mat[0].length; col++){
-                count2++;
-                if (count == count2){return (double)(mat[row][col]+mat[row][col+1])/2.0;}
+                for (int i = 0; i < mat.length * mat[0].length; i++){
+                arr[count2] = mat[row][col];
+                count2 ++; }}}
+
+            if (count % 2 == 0){
+       return (double)(arr[(int)count/2] + arr[(int)count/2-1])/2;
             }
-        }
-    }
-    else {count = count/2; 
-        for (int row = 0; row < mat.length; row++){
-            for (int col = 0; col < mat[0].length; col++){
-            count2++;
-            if (count == count2){return (double)(mat[row][col+1]);}
-    }
-    }
-}
-return 1.0;
+    
+    else {
+       return (Math.round(arr[count/2]));}
+
     }
     
 
     // Returns the mode of the 2D array mat
     public static double mode(double[][] mat) { 
-        // YOUR CODE HERE
-        return -1.0;
-    }
-
+        int count = 0;
+        int count2 = 0;
+        int most = 0; 
+        double mode = 0;
+       double[] arr = new double[mat.length * mat[0].length];
+        double[] arr2 = new double[mat.length * mat[0].length];
+        for (int row = 0; row < mat.length; row++){
+            for (int col = 0; col < mat[0].length; col++){
+            arr[count] = mat[row][col];
+            arr2[count] = mat[row][col];
+            count++;
+        }} 
+       for (int row = 0; row < mat.length; row++){
+            for (int col = 0; col < mat[0].length; col++){
+                for (int i = 0; i < mat.length * mat[0].length; i++){
+                count ++;
+        }}}
+    
+        for(int i = 0; i < arr.length-1; i++){
+            int equal = 0;
+                if (arr[i] == arr[i+1]){equal++;}
+            if (equal > most){equal = most; mode = arr[i];}
+        }
+        return mode;
+    } 
 
     public static void main(String[] args) {
         double mat[][] = {{1, 3, 7, 10}, 
