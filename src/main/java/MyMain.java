@@ -43,7 +43,6 @@ public class MyMain {
     // Returns the mode of the 2D array mat
     public static double mode(double[][] mat) { 
         int count = 0;
-        int count2 = 0;
         int most = 0; 
         double mode = 0;
        double[] arr = new double[mat.length * mat[0].length];
